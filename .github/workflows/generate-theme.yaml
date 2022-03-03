@@ -10,6 +10,8 @@ jobs:
         dependency-version: [prefer-stable]
     name: Generate block-based theme
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
