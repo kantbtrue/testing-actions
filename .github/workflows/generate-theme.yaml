@@ -1,0 +1,19 @@
+on: [clone]
+
+jobs:
+  generate_theme:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        php: [7.3]
+        dependency-version: [prefer-stable]
+    name: Generate block-based theme
+    steps:
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+      - name: Generate Theme
+        run: php generate-theme.php
